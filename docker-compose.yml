@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  gitlab-prod:
+    image: gitlab/gitlab-ce:16.11.1-ce.0
+    container_name: gitlab-prod
+    restart: always
+    ports:
+      - '127.0.0.1:10070:80'
+
+    volumes:
+      - ./volumes/gitlab/config:/etc/gitlab
+      - ./volumes/gitlab/logs:/var/log/gitlab
+      - ./volumes/gitlab/data:/var/opt/gitlab
